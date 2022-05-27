@@ -34,7 +34,7 @@ Kd_y = 10
 Kd_z = 1
 
 
-def quad_sim(x_c, y_c, z_c):
+def quad_sim(x_c, y_c, z_c, n_waypoint):
     """
     Calculates the necessary thrust and torques for the quadrotor to
     follow the trajectory described by the sets of coefficients
@@ -65,7 +65,7 @@ def quad_sim(x_c, y_c, z_c):
                   pitch=pitch, yaw=yaw, size=1, show_animation=show_animation)
 
     i = 0
-    n_run = 8
+    n_run = n_waypoint
     irun = 0
 
     while True:
@@ -115,7 +115,7 @@ def quad_sim(x_c, y_c, z_c):
             t += dt
 
         t = 0
-        i = (i + 1) % 4
+        i = (i + 1) % n_waypoint
         irun += 1
         if irun >= n_run:
             break
@@ -194,7 +194,7 @@ def main():
     of the trajectory
     """
     
-    waypoints = [[-5, -5, 5], [5, -5, 5], [5, 5, 5], [-5, 5, 5]]
+    #waypoints = [[-5, -5, 5], [5, -5, 5], [5, 5, 5], [-5, 5, 5]]
     
     x_coeffs = [[]]*len(waypoints)
     y_coeffs = [[]]*len(waypoints)
@@ -202,13 +202,13 @@ def main():
     
 
     for i in range(len(waypoints)):
-        traj = TrajectoryGenerator(waypoints[i], waypoints[(i + 1) % 4], T)
+        traj = TrajectoryGenerator(waypoints[i], waypoints[(i + 1) % len(waypoints)], T)
         traj.solve()
         x_coeffs[i] = traj.x_c
         y_coeffs[i] = traj.y_c
         z_coeffs[i] = traj.z_c
         
-    quad_sim(x_coeffs, y_coeffs, z_coeffs)
+    quad_sim(x_coeffs, y_coeffs, z_coeffs, len(waypoints))
 
 
 if __name__ == "__main__":
