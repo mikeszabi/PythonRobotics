@@ -195,6 +195,7 @@ def main():
     """
     
     #waypoints = [[-5, -5, 5], [5, -5, 5], [5, 5, 5], [-5, 5, 5]]
+    #waypoints from drawpolygon
     
     x_coeffs = [[]]*len(waypoints)
     y_coeffs = [[]]*len(waypoints)
