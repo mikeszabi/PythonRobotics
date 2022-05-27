@@ -193,18 +193,21 @@ def main():
     Calculates the x, y, z coefficients for the four segments 
     of the trajectory
     """
-    x_coeffs = [[], [], [], []]
-    y_coeffs = [[], [], [], []]
-    z_coeffs = [[], [], [], []]
+    
     waypoints = [[-5, -5, 5], [5, -5, 5], [5, 5, 5], [-5, 5, 5]]
+    
+    x_coeffs = [[]]*len(waypoints)
+    y_coeffs = [[]]*len(waypoints)
+    z_coeffs = [[]]*len(waypoints)
+    
 
-    for i in range(4):
+    for i in range(len(waypoints)):
         traj = TrajectoryGenerator(waypoints[i], waypoints[(i + 1) % 4], T)
         traj.solve()
         x_coeffs[i] = traj.x_c
         y_coeffs[i] = traj.y_c
         z_coeffs[i] = traj.z_c
-
+        
     quad_sim(x_coeffs, y_coeffs, z_coeffs)
 
 
