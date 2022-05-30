@@ -1,7 +1,7 @@
 """
 Generates a quintic polynomial trajectory.
 
-Author: Daniel Ingram (daniel-s-ingram)
+Author: SzMike
 """
 
 import numpy as np

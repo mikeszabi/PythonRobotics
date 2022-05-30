@@ -286,7 +286,7 @@ def main(gx=10.0, gy=10.0, robot_type=RobotType.circle):
             plt.plot(ob[:, 0], ob[:, 1], "ok")
             plot_robot(x[0], x[1], x[2], config)
             plot_arrow(x[0], x[1], x[2])
-            plt.axis("equal")
+            #plt.axis("equal")
             plt.grid(True)
             plt.pause(0.0001)
 

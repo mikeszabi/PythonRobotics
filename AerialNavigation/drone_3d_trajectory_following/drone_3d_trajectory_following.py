@@ -1,7 +1,7 @@
 """
 Simulate a quadrotor following a 3D trajectory
 
-Author: Daniel Ingram (daniel-s-ingram)
+Author: SzMike
 """
 
 from math import cos, sin
@@ -194,7 +194,7 @@ def main():
     of the trajectory
     """
     
-    #waypoints = [[-5, -5, 5], [5, -5, 5], [5, 5, 5], [-5, 5, 5]]
+    waypoints = [[-5, -5, 5], [5, -5, 5], [5, 5, 5], [-5, 5, 5]]
     #waypoints from drawpolygon
     
     x_coeffs = [[]]*len(waypoints)

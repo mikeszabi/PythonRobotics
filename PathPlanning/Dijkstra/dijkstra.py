@@ -2,7 +2,7 @@
 
 Grid based Dijkstra planning
 
-author: Atsushi Sakai(@Atsushi_twi)
+author: SzMike
 
 """
 
@@ -244,7 +244,7 @@ def main():
         plt.plot(sx, sy, "og")
         plt.plot(gx, gy, "xb")
         plt.grid(True)
-        plt.axis("equal")
+        #plt.axis("auto)
 
     dijkstra = Dijkstra(ox, oy, grid_size, robot_radius)
     rx, ry = dijkstra.planning(sx, sy, gx, gy)
